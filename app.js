@@ -85,7 +85,9 @@ if (playlistList.length) {
   document.getElementById("playlistGrid").innerHTML = playlistList.map(p => {
     const id = safeId(p.id);
     const thumb = safeId(p.thumb);
-    const img = thumb ? `<img src="https://i.ytimg.com/vi/${thumb}/hqdefault.jpg" alt="" loading="lazy">` : "";
+    const img = thumb
+      ? `<img src="https://i.ytimg.com/vi/${thumb}/hqdefault.jpg" alt="" loading="lazy">`
+      : `<img class="logo-thumb" src="logo.png" alt="" loading="lazy">`;
     const badge = p.count ? `<span class="badge">${escapeHtml(p.count)}</span>` : "";
     return `
     <div class="media-wrap">

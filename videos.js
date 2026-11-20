@@ -32,6 +32,14 @@
   LƯU Ý: giữ nguyên dấu ngoặc kép " " và dấu phẩy giữa các mục.
   Mục cuối cùng trong danh sách không cần dấu phẩy.
 */
-const topVideos = [];
+const topVideos = [
+  { id: "MH9iSXuC7Ag", title: "How Technicians Find a Dead Component in 60 Seconds" },
+  { id: "cgpFNpQl7tU", title: "Build an AM Radio With One 9 V Battery (And Why It Works)" },
+  { id: "3ijPVR7vjM0", title: "Why Your Phone Charger Dies The 10 Cent Part to Blame" }
+];
 
-const playlists = [];
+const playlists = [
+  { id: "PLTRZ9PXaOwoc", title: "01. Basic Electronics & Knowledge" },
+  { id: "PLG65PavP46ks", title: "02. DIY Electronics & Circuit Projects" },
+  { id: "PLWz8OYiHhcLU", title: "03. Electronics Components Explained" }
+];
