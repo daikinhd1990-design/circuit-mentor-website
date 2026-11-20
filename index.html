@@ -3,74 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Circuit Mentor — electronics learning, circuit design, troubleshooting and repair resources.">
-  <meta name="theme-color" content="#07111f">
-  <title>Circuit Mentor | Electronics Learning & Repair</title>
+  <meta name="description" content="Circuit Mentor — understand what's inside electronics. Videos, playlists and free downloads: PCB files, schematics and datasheets.">
+  <meta name="theme-color" content="#0b1014">
+  <title>Circuit Mentor | Understand What's Inside</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Circuit Mentor home">
-      <span class="brand-mark">CM</span><span>CIRCUIT<span class="accent">MENTOR</span></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
-    <nav id="nav">
-      <a href="#videos">Videos</a><a href="#resources">Downloads</a><a href="#about">About</a>
-      <a class="nav-cta" href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g?sub_confirmation=1" target="_blank" rel="noopener">Subscribe ↗</a>
-    </nav>
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Circuit Mentor home">
+        <img src="logo.png" alt="" width="42" height="42">
+        <span>Circuit Mentor</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Main">
+        <a href="#videos">Videos</a>
+        <a href="#resources">Downloads</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+      </nav>
+    </div>
   </header>
 
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">LEARN · DESIGN · TROUBLESHOOT · REPAIR</p>
-        <h1>Understand what's<br><span class="accent">inside the circuit.</span></h1>
-        <p class="hero-text">Practical electronics knowledge, circuit projects, component guides and troubleshooting resources — all in one place.</p>
+        <h1>Understand what's inside the circuit.</h1>
+        <p class="hero-text">Clear electronics lessons on YouTube, plus free PCB files, schematics and datasheets to build along.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#videos">Explore videos</a>
-          <a class="button secondary" href="#resources">Download resources</a>
+          <a class="button primary" href="#videos">Watch videos</a>
+          <a class="button secondary" href="#resources">Get free downloads</a>
         </div>
-        <p class="channel-note">Official YouTube channel: <strong>Circuit Mentor</strong></p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="chip"><span>CM</span><i></i><i></i><i></i><i></i></div>
-        <div class="circuit-line line-a"></div><div class="circuit-line line-b"></div>
-        <div class="orb orb-a"></div><div class="orb orb-b"></div>
-        <div class="art-caption">ELECTRONICS<br>KNOWLEDGE BASE</div>
+      <div class="hero-logo">
+        <img src="logo.png" alt="Circuit Mentor logo" width="360" height="360">
       </div>
-    </section>
-
-    <section class="stats-strip">
-      <div><strong>01</strong><span>Component knowledge</span></div>
-      <div><strong>02</strong><span>Circuit projects</span></div>
-      <div><strong>03</strong><span>Fault diagnosis</span></div>
-      <div><strong>04</strong><span>Downloadable files</span></div>
     </section>
 
     <section class="section" id="videos">
       <div class="section-heading">
-        <div><p class="eyebrow">WATCH & LEARN</p><h2>Latest from YouTube</h2></div>
-        <a class="text-link" href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g/videos" target="_blank" rel="noopener">View all videos ↗</a>
+        <h2>Videos</h2>
+        <a class="text-link" href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g/videos" target="_blank" rel="noopener">Open channel on YouTube</a>
       </div>
+
       <div class="video-frame">
-        <iframe
+        <iframe id="player"
           src="https://www.youtube.com/embed/videoseries?list=UUfQs1XyjNaPsnr4hdW_QA2g"
-          title="Circuit Mentor latest YouTube videos"
+          title="Circuit Mentor video player"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
-      <p class="small-note">If the video playlist does not load, use the “View all videos” link to open the channel.</p>
+      <p class="player-now" id="playerNow">Now showing: latest uploads</p>
+
+      <div class="tabs" role="tablist" aria-label="Video lists">
+        <button class="tab active" role="tab" id="tab-latest" aria-selected="true" aria-controls="panel-latest" data-tab="latest">Latest</button>
+        <button class="tab" role="tab" id="tab-top" aria-selected="false" aria-controls="panel-top" data-tab="top" hidden>Most viewed</button>
+        <button class="tab" role="tab" id="tab-playlists" aria-selected="false" aria-controls="panel-playlists" data-tab="playlists" hidden>Playlists</button>
+      </div>
+
+      <div class="tab-panel" id="panel-latest" role="tabpanel" aria-labelledby="tab-latest">
+        <p class="panel-note">The player above shows the newest videos from the channel. Use the arrows inside the player to move between them.</p>
+        <button class="button secondary" id="playLatest" type="button">Play latest uploads</button>
+      </div>
+      <div class="tab-panel" id="panel-top" role="tabpanel" aria-labelledby="tab-top" hidden>
+        <div class="card-grid" id="topGrid"></div>
+      </div>
+      <div class="tab-panel" id="panel-playlists" role="tabpanel" aria-labelledby="tab-playlists" hidden>
+        <div class="card-grid" id="playlistGrid"></div>
+      </div>
     </section>
 
-    <section class="section resource-section" id="resources">
+    <section class="section" id="resources">
       <div class="section-heading">
-        <div><p class="eyebrow">FILES & DOCUMENTATION</p><h2>Resource library</h2><p class="section-intro">Download project files, PCB layouts, schematics and component datasheets.</p></div>
+        <div>
+          <h2>Free downloads</h2>
+          <p class="section-intro">PCB layouts, schematics, parts lists and datasheets from the videos.</p>
+        </div>
       </div>
       <div class="resource-tools">
-        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search by file, component or project..." aria-label="Search resources"></label>
+        <label class="search-box">
+          <span class="visually-hidden">Search downloads</span>
+          <input id="searchInput" type="search" placeholder="Search by name, component or project" autocomplete="off">
+        </label>
         <div class="filters" id="filters">
-          <button class="filter active" data-filter="All">All files</button>
+          <button class="filter active" data-filter="All">All</button>
           <button class="filter" data-filter="PCB">PCB</button>
           <button class="filter" data-filter="Schematic">Schematics</button>
           <button class="filter" data-filter="Datasheet">Datasheets</button>
@@ -78,23 +97,36 @@
         </div>
       </div>
       <div class="resource-grid" id="resourceGrid" aria-live="polite"></div>
-      <p class="empty-state" id="emptyState" hidden>No matching resources. Try another search.</p>
-      <p class="small-note">Download links open MediaFire in a new tab. Always check the file description and version before using a design.</p>
+      <p class="empty-state" id="emptyState" hidden>Nothing matches your search. Try a shorter word or choose All.</p>
+      <p class="small-note">Download buttons open MediaFire in a new tab. Check the description and version before you build.</p>
     </section>
 
     <section class="subscribe-banner">
-      <div><p class="eyebrow">FOLLOW THE CHANNEL</p><h2>Build your electronics skills.</h2><p>Subscribe for circuit explanations, practical projects and troubleshooting guides.</p></div>
-      <a class="button primary" href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube ↗</a>
+      <div>
+        <h2>New circuits explained every week.</h2>
+        <p>Subscribe so you don't miss the next video and its files.</p>
+      </div>
+      <a class="button primary" href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
     </section>
 
     <section class="section about" id="about">
-      <p class="eyebrow">ABOUT CIRCUIT MENTOR</p><h2>Electronics, explained practically.</h2>
-      <p>Circuit Mentor shares educational content about electronic components, circuit design, fault finding and repair. This website is a companion library for viewers to access project files and reference materials.</p>
-      <div class="about-links"><a href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g" target="_blank" rel="noopener">YouTube channel ↗</a><a href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g/playlists" target="_blank" rel="noopener">Playlists ↗</a></div>
+      <h2>About Circuit Mentor</h2>
+      <p>Circuit Mentor explains how everyday electronics work, using clear 2D animations, circuit diagrams and practical examples. Transistors, capacitors, resistors, sensors, chargers and circuit boards are broken down into lessons anyone can follow.</p>
+      <p>This website is the companion library for the channel: project files and reference material in one place.</p>
+      <div class="about-links">
+        <a href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g" target="_blank" rel="noopener">YouTube channel</a>
+        <a href="https://www.youtube.com/channel/UCfQs1XyjNaPsnr4hdW_QA2g/playlists" target="_blank" rel="noopener">All playlists</a>
+      </div>
     </section>
   </main>
 
-  <footer><a class="brand" href="#home"><span class="brand-mark">CM</span><span>CIRCUIT<span class="accent">MENTOR</span></span></a><span>© <span id="year"></span> Circuit Mentor. For educational purposes.</span></footer>
-  <script src="resources.js"></script><script src="app.js"></script>
+  <footer>
+    <a class="brand" href="#home"><img src="logo.png" alt="" width="30" height="30"><span>Circuit Mentor</span></a>
+    <span>© <span id="year"></span> Circuit Mentor. For educational purposes.</span>
+  </footer>
+
+  <script src="resources.js"></script>
+  <script src="videos.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
