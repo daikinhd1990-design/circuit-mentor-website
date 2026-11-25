@@ -35,7 +35,7 @@ const resources = [
     format: "ZIP",
     updated: "19 Nov 2026",
     url: "https://www.mediafire.com/file/cx73jq4fyqpbbj8/am_radio_pcb_gerber.zip/file"
-  }
+  },
    {
     title: "Automatic Dark-Activated Night Light",
     category: "PCB",
@@ -44,5 +44,4 @@ const resources = [
     updated: "25 Nov 2026",
     url: "https://www.mediafire.com/folder/xjil0mtnypate/Automatic+Dark-Activated+Night+Light"
   },
-
 ];
