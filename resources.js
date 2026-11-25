@@ -36,4 +36,13 @@ const resources = [
     updated: "19 Nov 2026",
     url: "https://www.mediafire.com/file/cx73jq4fyqpbbj8/am_radio_pcb_gerber.zip/file"
   },
+ {
+    title: "Automatic Dark-Activated Night Light",
+    category: "PCB",
+    description: "Single-sided home-etch PCB for the AM radio build, with the schematic and parts list.",
+    format: "ZIP",
+    updated: "25 Nov 2026",
+    url: "https://www.mediafire.com/folder/xjil0mtnypate/Automatic+Dark-Activated+Night+Light"
+  },
 ];
+
